@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+<!--    <data>-->
+<!--        <report id="report_session_card"-->
+<!--                model="account.move"-->
+<!--                report_type="qweb-pdf"-->
+<!--                string="invoice card"-->
+<!--                name="eka.report_invoice"-->
+<!--                file="eka.report_invoice"/>-->
+<!--    </data>-->
+
+       <data>
+
+
+               <report
+                   id="custom_invoice_account"
+                   model="account.move"
+                   report_type="qweb-pdf"
+                   string="Custom Invoice"
+                   name="eka.custom_template_for_invoice"
+                   file="eka.custom_template_for_invoice"
+               />
+
+    </data>
+</odoo>
+

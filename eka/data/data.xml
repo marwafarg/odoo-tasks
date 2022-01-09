@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+
+ <record id="session_sequence" model="ir.sequence">
+          <field name="name">session Sequence</field>
+          <field name="prefix">s_O </field>
+          <field name="padding">6</field>
+          <field name="code">eka.session</field>
+</record>
+
+
+    </data>
+</odoo>

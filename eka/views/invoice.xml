@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="account_move_form_inherit" model="ir.ui.view">
+           <field name="name">Invoices</field>
+           <field name="model">account.move</field>
+           <field name="inherit_id" ref="account.view_move_form"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='invoice_date']" position="after">
+                   <field name="start_work_date"/>
+                   <field name="end_work_date"/>
+               </xpath>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

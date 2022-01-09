@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!--        courseview-->
+
+    <record model="ir.ui.view" id="course_form_view">
+        <field name="name">course.form</field>
+        <field name="model">eka.course</field>
+        <field name="arch" type="xml">
+            <form string="course form">
+
+                <sheet>
+
+                    <group>
+                        <group>
+
+                            <field name="name"/>
+                            <field name="responsible_id"/>
+
+
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                        <page string="Instructor">
+                            <field name="instructor"/>
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="course_list_action">
+        <field name="name">Course</field>
+        <field name="res_model">eka.course</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">create the first course</p>
+        </field>
+
+    </record>
+
+
+    <menuitem id="main_eka_menu" name="eka" sequence="0"/>
+    <menuitem id="eka_menu" name="eka"
+              parent="main_eka_menu" sequence="4"/>
+    <menuitem id="course_menu" name="course"
+              parent="eka_menu" action="course_list_action" sequence="11"/>
+
+
+    <!--session view-->
+    <record model="ir.ui.view" id="session_form_view">
+        <field name="name">session.form</field>
+        <field name="model">eka.session</field>
+        <field name="arch" type="xml">
+            <form string="session form">
+                <header>
+                     <button name="button_done" string="Done" type="object"
+                            class="oe_highlight"/>
+                    <button name="button_rest" string="Draft" type="object"
+                             class="oe_highlight"/>
+                    <button name="button_cancel" string="Cancel" type="object"
+                           class="oe_highlight"/>
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,cancel"/>
+                </header>
+                <sheet>
+                    <div class="oo_title">
+                        <h1>
+                            <field name="sequence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+
+                            <field name="name"/>
+
+                        </group>
+                    </group>
+                    <!--                    <group>-->
+                    <!--                        <group string="General">-->
+                    <!--                            <field name="course_id"/>-->
+                    <!--                            <field name="name"/>-->
+                    <!--                            <field name="instructor_id"/>-->
+                    <!--                        </group>-->
+                    <!--                    </group>-->
+                    <group>
+                        <group string="Schedule">
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="seat"/>
+                            <field name="session_record"/>
+
+                        </group>
+                    </group>
+                    <form string="course form">
+                        <sheet>
+                            <notebook>
+
+                                <page string="General">
+                                    <group string="course_id">
+                                        <field name="course_id"/>
+                                    </group>
+
+
+                                    <group string="coursename">
+                                        <field name="name"/>
+                                    </group>
+
+
+                                    <group string="instructor">
+
+                                        <field name="instructor_id"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </sheet>
+                    </form>
+
+
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="session_list_action">
+        <field name="name">session</field>
+        <field name="res_model">eka.session</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">create the first session</p>
+        </field>
+
+    </record>
+
+
+    <menuitem id="main_eka_menu" name="eka" sequence="2"/>
+    <menuitem id="eka_menu" name="eka"
+              parent="main_eka_menu" sequence="0"/>
+    <menuitem id="session_menu" name="session"
+              parent="eka_menu" action="session_list_action" sequence="16"/>
+
+</odoo>
